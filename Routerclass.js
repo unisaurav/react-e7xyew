@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Login from './Login'
 import Welcome from './Welcome'
+import Userlist from './Userlist'
 class Routerclass extends React.Component{
 
   constructor(){
@@ -48,6 +49,7 @@ class Routerclass extends React.Component{
       <Router>
         <Route path="/" exact component={Login}></Route>
         <Route path="/welcome" component={Welcome}></Route>
+       <Route path="/userlist" component={Userlist}></Route>
       </Router>
     );
   }
