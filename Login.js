@@ -42,6 +42,9 @@ class Login extends React.Component{
     update[i].LoginStatus=true;
     console.log(update);
     localStorage.setItem("UserData",JSON.stringify(update));
+    var index=i.toString();
+    localStorage.setItem("UserIndex",index);
+
     console.log("local data update");
     this.props.history.push("/welcome",{username:this.state.LoginCred[i].Username});
     return;

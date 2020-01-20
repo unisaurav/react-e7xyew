@@ -3,6 +3,7 @@ import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Login from './Login'
 import Welcome from './Welcome'
 import Userlist from './Userlist'
+
 class Routerclass extends React.Component{
 
   constructor(){
@@ -32,7 +33,7 @@ class Routerclass extends React.Component{
         {Username:"siddhesh",
         Password:"itwari@123",
         Age:21,
-        LoginStatus:false},
+        LoginStatus:false},           
 
         
       ]
@@ -41,14 +42,19 @@ class Routerclass extends React.Component{
   componentWillMount(){
     console.log("mount router")
   localStorage.setItem("UserData",JSON.stringify(this.state.useralist));
-
+    // localStorage.setItem("UserIndex",null);
+  }
+  componentWillUpdate(){
+    console.log("maybe");
   }
 
   render(){
     return(
       <Router>
         <Route path="/" exact component={Login}></Route>
-        <Route path="/welcome" component={Welcome}></Route>
+                <Route path="/login" exact component={Login}></Route>
+
+        <Route path="/welcome" component={Welcome} everywhere={{data:"kjldsf"}}></Route>
        <Route path="/userlist" component={Userlist}></Route>
       </Router>
     );

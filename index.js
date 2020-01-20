@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import Routerclass from './Routerclass'
 import './style.css';
+import Header from './Header'
 
 class App extends Component {
   
