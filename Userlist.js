@@ -3,41 +3,58 @@ import React from 'react'
 class Userlist extends React.Component{
   componentWillMount(){
     
-    console.log(this.props.location.state.userdata)
-   this.userlistitr();
+    console.log("prop in Userlist",this.props.location.state.userdata)
   }
 
-  userlistitr(){
-    var data=[];
-    var curuser=[];
-    for(var i=0;i<this.props.location.state.userdata.length;i++){
+  // userlistitr(){
+  //   var data=[];
+  //   var curuser=[];
+  //   for(var i=0;i<this.props.location.state.userdata.length;i++){
    
-        if(this.props.location.state.userdata[i].LoginStatus==false){
-          data.push(this.props.location.state.userdata[i]);
-        }else{
-          curuser.push(this.props.location.state.userdata[i]);
-        };
+  //       if(this.props.location.state.userdata[i].LoginStatus==false){
+  //         data.push(this.props.location.state.userdata[i]);
+  //       }else{
+  //         curuser.push(this.props.location.state.userdata[i]);
+  //       };
       
-    }
-    console.log(data);
+  //   }
+  //   console.log(data);
 
+  // }
+
+  changecolor(index,data){
+
+  console.log("index",index)
+   var a;
+  if(data.LoginStatus==true){
+
+  a="Currently logged in user "+ data.Username+"'s Age is "+data.Age +" And Login Status is"+" "+data.LoginStatus
+  }else{
+
+ a=data.Username+"'s Age is "+data.Age +" And Login Status is"+" "+data.LoginStatus
   }
+
+   console.log("index",a)
+  alert(a)
+    
+}
+
 
 render(){
   return(
 
-    <div>
+    <div >
     {this.props.location.state.userdata.map((data,index)=>{
       if(data.LoginStatus==false){
     return(
-    <div>
+    <div style={{display:'flex',flexDirection:'row',}}>
     <p>{data.Username}</p>
-    <button> view</button></div>);}
+    <button onClick={()=>this.changecolor(index,data)}  style={{height:30,marginTop:15,marginLeft:10}}> view</button></div>);}
     else{
   return(
-    <div>
-    <p style={{color:'red'}}>{data.Username}</p>
-    <button> view</button></div>);
+    <div style={{display:'flex',flexDirection:'row',}} >
+    <p style={{color:'green'}}>{data.Username}</p>
+    <button  style={{height:30,marginTop:15,marginLeft:10,alignText:'center'}} onClick={()=>this.changecolor(index,data)}> view</button></div>);
     }
     
     })
