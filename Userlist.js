@@ -1,9 +1,17 @@
 import React from 'react' 
 
 class Userlist extends React.Component{
+  constructor(){
+    super()
+    this.state={
+      userdata:null
+    }
+  }
+
   componentWillMount(){
-    
-    console.log("prop in Userlist",this.props.location.state.userdata)
+    // console.log(this.props.location);
+    // console.log("prop in Userlist -",this.props.state);
+    this.setState({userdata:JSON.parse(localStorage.getItem("UserData"))})
   }
 
   // userlistitr(){
@@ -40,28 +48,30 @@ class Userlist extends React.Component{
 }
 
 
+
+
 render(){
   return(
 
     <div >
-    {this.props.location.state.userdata.map((data,index)=>{
+
+    {this.state.userdata.map((data,index)=>{
       if(data.LoginStatus==false){
     return(
     <div style={{display:'flex',flexDirection:'row',}}>
     <p>{data.Username}</p>
-    <button onClick={()=>this.changecolor(index,data)}  style={{height:30,marginTop:15,marginLeft:10}}> view</button></div>);}
+    <button onClick={()=>this.changecolor(index,data)}  style={{height:30,marginTop:15,marginLeft:10,float:'left'}}> view</button></div>);}
     else{
   return(
     <div style={{display:'flex',flexDirection:'row',}} >
     <p style={{color:'green'}}>{data.Username}</p>
-    <button  style={{height:30,marginTop:15,marginLeft:10,alignText:'center'}} onClick={()=>this.changecolor(index,data)}> view</button></div>);
+    <button  style={{height:30,marginTop:15,marginLeft:10,alignText:'center'}} onClick={()=>this.changecolor(index,data)}> view</button>
+    
+    </div>);
     }
     
     })
-    
-    
     }
-   
     </div>
   );
 }

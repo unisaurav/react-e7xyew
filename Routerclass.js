@@ -51,10 +51,11 @@ class Routerclass extends React.Component{
   render(){
     return(
       <Router>
+      <Route path="/login" exact component={Login}></Route>
         <Route path="/" exact component={Login}></Route>
-                <Route path="/login" exact component={Login}></Route>
+        
 
-        <Route path="/welcome" component={Welcome} everywhere={{data:"kjldsf"}}></Route>
+        <Route path="/welcome" component={Welcome} ></Route>
        <Route path="/userlist" component={Userlist}></Route>
       </Router>
     );

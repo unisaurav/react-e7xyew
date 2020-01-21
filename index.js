@@ -4,6 +4,7 @@ import Hello from './Hello';
 import Routerclass from './Routerclass'
 import './style.css';
 import Header from './Header'
+import Welcometxt from './Welcometxt'
 
 class App extends Component {
   

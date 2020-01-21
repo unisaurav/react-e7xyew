@@ -49,15 +49,17 @@ class Login extends React.Component{
     this.props.history.push("/welcome",{username:this.state.LoginCred[i].Username});
     return;
     }
-  }}
+  }
+  alert("Invalid Details");
+  }
 
 
   render(){
     return(
       <div style={{display:"flex",flexDirection:"column", width:"50%"}}>
-      <input onChange={this.usertxt}></input>
+      <input placeholder="Username" onChange={this.usertxt}></input>
       <br />
-      <input type="password" onChange={this.passtxt}></input>
+      <input placeholder="Password" type="password" onChange={this.passtxt}></input>
       <br/>
       <button onClick={this.validate}>Login</button>
 

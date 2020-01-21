@@ -3,7 +3,9 @@ import React from 'react'
 class Test extends React.Component{
   render(){
     return(
-      <div>data from {this.props.datafrom.data}</div>
+      <div><p>data from</p>
+      <button onClick={()=>{this.props.history.push("/list")}}>fdsaf</button> 
+      </div>
     );
   }
 }
